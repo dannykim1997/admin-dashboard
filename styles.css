@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    background-color: beige ;
+}
+
+.sidebar {
+    border: 1px solid red;
+}
+
+.header {
+    border: 2px solid black;
+}
+
+.header-top {
+    border: 1px solid green;
+}
+
+.header-bottom {
+    border: 1px solid blue;
+}
+
+.content {
+    border: 2px solid orange;
+}
+
+.projects {
+    border: 1px solid purple;
+}
+
+.announcements {
+    border: 1px solid turquoise;
+}
+
+.trending {
+    border: 1px solid darkcyan;
+}
