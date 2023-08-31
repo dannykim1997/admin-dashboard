@@ -1,14 +1,26 @@
 body {
     margin: 0;
+    height: 100%;
     background-color: beige ;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 1fr 6fr;
 }
 
 .sidebar {
     border: 1px solid red;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 1/6;
 }
 
 .header {
     border: 2px solid black;
+    grid-column: 2/6;
+    grid-row: 1/2;
 }
 
 .header-top {
@@ -21,16 +33,41 @@ body {
 
 .content {
     border: 2px solid orange;
+    grid-area: 2/2/6/6;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
 .projects {
     border: 1px solid purple;
+    grid-column: 1/2;
+    grid-row: 1/3;
+}
+
+.project-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .announcements {
     border: 1px solid turquoise;
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.announcement-card-container {
+    display: flex;
+    flex-direction: column;
 }
 
 .trending {
     border: 1px solid darkcyan;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.trending-card-container {
+    display: flex;
+    flex-direction: column;
 }
