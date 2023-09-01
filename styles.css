@@ -1,21 +1,20 @@
 body {
     margin: 0;
-    height: 100%;
-    background-color: beige ;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 6fr;
+    /* grid-template-rows: 1fr 2fr 2fr; */
     grid-template-rows: 1fr 6fr;
 }
 
 .sidebar {
-    border: 1px solid red;
-    background-color: #0ea5e9;
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row: 1/6;
+    background-color: #E1F5FE;
+    grid-column: 1/2;
+    /* grid-row: 1/4; */
+    grid-row: 1/3;
 }
 
 .dashboard {
@@ -23,6 +22,8 @@ body {
     grid-auto-flow: column;
     align-items: center;
     font-size: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .dashboard img {
@@ -30,38 +31,73 @@ body {
     height: auto;
 }
 
+ul {
+    list-style: none;   
+}
+
+ul img {
+    width: 30px;
+    height: auto;
+}
+
+ul li {
+    display: grid;
+    grid-template-columns: 50px 50px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
 .header {
-    border: 2px solid black;
-    background-color: #f8fafc;
-    grid-column: 2/6;
+    background-color: #81D4FA;
+    grid-column: 2/3;
     grid-row: 1/2;
     display: grid;
     /* grid-template-columns: 3fr 1fr 1fr 1fr; */
+
     grid-template-rows: 1fr 1fr;
 }
 
 .header-top {
-    border: 1px solid green;
     /* grid-column: 1/5; */
     grid-row: 1/2;
+
+    margin-top: 20px;
     display: grid;
+    /* grid-template-columns: 3fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr); */
     grid-template-columns: 3fr 1fr 1fr 1fr;
-    grid-template-rows: repeat(3, 1fr);
 }
 
-.header-top input {
-    border: 2px solid red;
-    grid-area: 2/1/3/2;
+.search {
+    /* grid-area: 2/1/3/2; */
+    grid-column: 1/2;
+    margin-left: 100px;
+    margin-right: 100px;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+}
+
+.search img {
+    width: 30px;
+    min-height: auto;
+    grid-column: 1/2;
+}
+
+.search input {
+    grid-column: 2/3;
+    background-color: #FAFAFA;
+    border-radius: 25px;
+
+    max-height: 20px;
 }
 
 .header-top-section {
-    border: 2px solid blue;
+    /* grid-column: 2/5;
+    grid-row: 2/3; */
     grid-column: 2/5;
-    grid-row: 2/3;
-    /* display: flex;
-    justify-content: space-around; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    font-size: 20px;
 }
 
 .header-top-section img {
@@ -70,56 +106,174 @@ body {
 }
 
 .header-bottom {
-    border: 1px solid blue;
     /* grid-column: 1/5; */
+    margin-bottom: 20px;
     grid-row: 2/3;
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
-    grid-template-rows: repeat(2, 1fr);
+    /* grid-template-columns: 1fr 2fr 1fr 1fr 1fr; */
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.header-bottom-profile {
+    grid-column: 1/2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 24px;
+}
+
+.header-bottom-profile img {
+    width: 100px;
+    height: auto;
+}
+
+.header-bottom-buttons {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 100px;
 }
 
 .header-bottom button {
-    max-width: 150px;
-    background-color: #0ea5e9;
+    max-width: 100px;
+    max-height: 30px;
+    min-width: 100px;
+    min-height: 30px;
+    border-radius: 25px;
+    background-color: #E1F5FE;
 }
 
 .content {
-    border: 2px solid orange;
-    grid-area: 2/2/6/6;
+    background-color: #B0BEC5;
+    grid-column: 2/3;
+    /* grid-row: 2/4; */
+    grid-row: 2/3;
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 6fr 6fr 1fr;
+    grid-template-areas: 
+    "projects projects announcements"
+    "projects projects trending"
+    ;
+    /* grid-template-columns: 3fr 1fr;
+    grid-template-rows: subgrid; */
+}
+
+.content-header {
+    font-size: 28px;
+    margin: 14px;
 }
 
 .projects {
-    border: 1px solid purple;
-    grid-column: 1/2;
-    grid-row: 1/3;
+    grid-area: projects;
+    /* grid-column: 1/2;
+    grid-row: 1/3; */
 }
+
 
 .project-card-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.project-card {
+    font-size: 16px;
+    margin: 14px;
+    max-width: 300px;
+    border: solid 2px black;
+    padding: 8px;
+    background-color: #FAFAFA;
+    border-radius: 8px;
+    box-shadow: -6px 0px #0ea5e9;
+}
+
+.project-title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.icons {
+    display: flex;
+    justify-content: end;
+    margin-right: 14px;
+}
+
+.icons img {
+    width: 30px;
+    height: auto;
 }
 
 .announcements {
-    border: 1px solid turquoise;
-    grid-column: 2/3;
-    grid-row: 1/2;
+    grid-area: announcements;
+    /* grid-column: 2/3;
+    grid-row: 1/2; */
+    max-width: 250px;
+    min-width: 250px;
+    margin-right: 10px;
 }
 
 .announcement-card-container {
     display: flex;
     flex-direction: column;
+    background-color: white;
+    border-radius: 8px;
+    border: solid 2px black;
+}
+
+.announcement-card {
+    font-size: 14px;
+    margin: 14px;
+    border-bottom: solid 1px grey;
+}
+
+.announcement-title {
+    font-size: 16px;
+    font-weight: 700;
 }
 
 .trending {
-    border: 1px solid darkcyan;
-    grid-column: 2/3;
-    grid-row: 2/3;
+    grid-area: trending;
+    /* grid-column: 2/3;
+    grid-row: 2/3; */
+    max-width: 250px;
+    min-width: 250px;
+    margin-right: 10px;
+    margin-bottom: 100px;
 }
 
 .trending-card-container {
     display: flex;
     flex-direction: column;
+    background-color: white;
+    border-radius: 8px;
+    border: solid 2px black;
+}
+
+.trending-card {
+    margin: 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    border-bottom: solid 1px grey;
+}
+
+.trending-card img {
+    width: 50px;
+    height: auto;
+    grid-column: 1/2;
+    grid-row: 1/3;
+}
+
+.trending-user {
+    font-size: 16px;
+    font-weight: 500;
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.user-bio {
+    font-size: 14px;
+    font-weight: 300;
+    grid-column: 2/3;
+    grid-row: 2/3;
 }
